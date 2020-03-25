@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListViewXamarin"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="ListViewXamarin.MainPage">
+    
+    <ContentPage.BindingContext>
+        <local:ContactsViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <syncfusion:SfListView x:Name="listView" SelectionMode="None" ItemSize="100" 
+                                    ItemsSource="{Binding contactsinfo}" Margin="{OnPlatform iOS='0,40,0,0'}">
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" >
+                                                <Label LineBreakMode="WordWrap" 
+                                                       VerticalOptions="Center" HorizontalOptions="Center"
+                                                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                       TextColor="#474747" 
+                                                       Text="{Binding ContactName}">
+                                                </Label>
+                                                <Label LineBreakMode="WordWrap" 
+                                                       VerticalOptions="Center" HorizontalOptions="Center"
+                                                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                       TextColor="#474747"
+                                                       Text="{Binding ContactNumber}">
+                                                </Label>
+                                            </StackLayout>
+                                            <Grid VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1">
+                                                <Button x:Name="ZoomIn" Text="Edit" FontAttributes="Bold" FontSize="16" 
+                                                        Command="{Binding Path=BindingContext.TapCommand, Source={x:Reference Name=listView}}" 
+                                                        CommandParameter="{Binding .}" />
+                                            </Grid>
+                                        </Grid>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>
+    </ContentPage.Content>
+</ContentPage>
