@@ -4,6 +4,7 @@
 You can edit the tapped [ListViewItem](https://help.syncfusion.com/cr/cref_files/xamarin/Syncfusion.SfListView.XForms~Syncfusion.ListView.XForms.ListViewItem.html?) by binding the item to [DataForm](https://help.syncfusion.com/xamarin/dataform/getting-started?) in Xamarin.Forms [SfListView](https://help.syncfusion.com/xamarin/listview/overview?).
 
 The following article explains you how to edit the listview item in another page.
+
 https://www.syncfusion.com/kb/11286/how-to-edit-the-listview-tapped-item-in-xamarin-forms-sflistview-using-dataform 
 
 **XAML**
